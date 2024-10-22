@@ -121,11 +121,6 @@
       </div>
     </div>
     <script>
-
-        const styleOptions = {
-          // Hide upload button.
-          hideUploadButton: false
-        };
       // This is a helper function for fetching JSON resources.
       var locString = "Browser does not support geolocation." 
       async function fetchJSON(url, options = {}) {
@@ -136,6 +131,10 @@
             accept: 'application/json'
           }
         });
+        const styleOptions = {
+            // Hide upload button.
+            hideUploadButton: false
+          };
 
         if (!res.ok) {
           throw new Error(`Failed to fetch JSON due to ${res.status}`);
@@ -180,6 +179,7 @@
       }
 
       (async function main() {
+         
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition, erroring);
           } else {
